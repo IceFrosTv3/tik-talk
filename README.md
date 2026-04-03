@@ -72,6 +72,10 @@ src/
     └── assets/             — fonts, images, SVG icons
 ```
 
+## API Documentation
+
+Full API reference: https://icherniakov.ru/yt-course/docs
+
 ## Planned Features
 
 - [ ] Posts feed (create, view, delete)
