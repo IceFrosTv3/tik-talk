@@ -1,0 +1,142 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 20px;
+  background-color: var(--dark-color);
+}
+
+.sidebar {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__logo {
+    padding-inline: 28px;
+  }
+
+  &__list {
+    padding-inline: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    column-gap: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5rem;
+
+    &.active {
+      color: var(--primary-color);
+      background-color: var(--dark-active);
+      border-radius: 2px;
+    }
+  }
+}
+
+.followers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-inline: 28px;
+
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--light-transparent);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__description {
+    &:hover &-text::before {
+      width: 100%;
+    }
+
+    &-text {
+      color: var(--primary-color);
+      font-size: 12px;
+      font-weight: 500;
+      position: relative;
+      display: inline-flex;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: currentColor;
+        transition: width 0.3s ease;
+      }
+
+      &::after {
+        content: url("/assets/svg/arrow.svg");
+        position: absolute;
+        top: 0;
+        right: -50%;
+      }
+    }
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 12px;
+  padding: 4px 16px;
+  gap: 20px;
+  background-color: var(--dark-active);
+  color: var(--primary-color);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5rem;
+  }
+
+  &__image {
+    border-radius: 50%;
+  }
+
+  &__title {
+    color: var(--primary-color);
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  &__settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    color: currentColor;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}

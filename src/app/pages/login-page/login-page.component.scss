@@ -1,0 +1,86 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  max-width: 77vw;
+  height: 100dvh;
+  align-items: center;
+  margin-inline: auto;
+  gap: 30px;
+}
+
+.login {
+  &__content {
+    max-width: 440px;
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    &:last-child {
+      margin-bottom: 16px;
+    }
+  }
+
+  .label {
+    &__title {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    &__input-wrapper {
+      position: relative;
+    }
+
+    &__input {
+      font-family: var(--font-family);
+      padding: 12px 52px 12px 20px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.3rem;
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      border: 1px solid var(--light-color);
+      border-radius: 2px;
+
+      &::placeholder {
+        color: var(--light-transparent);
+      }
+    }
+
+    &__pass-is-visibility {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+      top: 50%;
+      right: 20px;
+      translate: 0 -50%;
+      background-color: transparent;
+      color: var(--light-transparent);
+      border: none;
+      cursor: pointer;
+
+      & svg * {
+        fill: currentColor;
+      }
+
+      &.active {
+        color: var(--light-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@if (profile$ | async; as profile) {
+  <header class="profile-page__header">
+    <app-profile-header [profile]="profile" [isInline]="true"></app-profile-header>
+
+    <a routerLink="/settings" class="btn profile-page__settings">
+      Редактировать
+      <svg icon="settings" class="svg-settings"></svg>
+    </a>
+  </header>
+  <main class="profile-page__body content">
+
+    <app-post-feed></app-post-feed>
+
+    <div class="content__about about">
+      <div class="about__followers">
+        <h3 class="about__title">Подписчики</h3>
+        <div class="about__description">
+          @for (profile of subscribers$ | async; track profile.id) {
+            <a class="subscriber__button" [routerLink]="['/profile', profile.id]">
+              <img
+                class="subscriber__image"
+                [src]="profile.avatarUrl | imageUrl" alt=""
+                width="36" height="36"
+                loading="lazy"
+              />
+            </a>
+          }
+          <a class="subscriber__button" routerLink="/account/create">
+            <button class="subscriber__search" type="button"></button>
+          </a>
+        </div>
+      </div>
+      <div class="about__skills">
+        <h3 class="about__title">Навыки</h3>
+        <div class="about__tags">
+          @for (skill of profile.stack; track skill) {
+            <div class="skill-tag">{{skill}}</div>
+          }
+        </div>
+      </div>
+      <div class="about__info">
+        <h3 class="about__title">О себе</h3>
+        <span class="about__description">
+          Список навыков, который мы обсудили выше, — основа резюме, но не единственная его часть. Также можно
+          рассказать о себе в классическом смысле — этот раздел можно добавить в сопроводительное письмо.
+        </span>
+      </div>
+    </div>
+  </main>
+}

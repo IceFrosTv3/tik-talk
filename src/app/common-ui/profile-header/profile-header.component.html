@@ -1,0 +1,13 @@
+@if (profile(); as profile) {
+  <img
+    class="profile__image"
+    [src]="(profile.avatarUrl | imageUrl) ?? '/assets/images/profile-placeholder.svg'"
+    alt="Profile avatar"
+    width="112" height="112"
+    loading="lazy"
+  />
+  <div class="profile__content" [class.inline]="isInline()">
+    <h4 class="profile__name">{{profile.firstName}} {{profile.lastName}}</h4>
+    <span class="profile__username">{{profile.username}}</span>
+  </div>
+}

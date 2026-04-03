@@ -1,0 +1,54 @@
+<app-profile-header></app-profile-header>
+
+<form class="profile-form" [formGroup]="form">
+  <div class="profile-form__data">
+    <div class="profile-form__two-columns">
+      <label class="tt-form-label">
+        <span>Имя</span>
+        <input type="text" class="tt-form-input" placeholder="Введите данные" formControlName="firstName">
+      </label>
+      <label class="tt-form-label">
+        <span>Фамилия</span>
+        <input type="text" class="tt-form-input" placeholder="Введите данные" formControlName="lastName">
+      </label>
+    </div>
+    <label class="tt-form-label">
+      <span>Telegram username</span>
+      <input type="text" class="tt-form-input" placeholder="Введите данные" formControlName="username">
+    </label>
+    <label class="tt-form-label">
+      <span>О себе</span>
+      <textarea
+        class="tt-form-input tt-text-area"
+        formControlName="description"
+        placeholder="Введите данные"
+        (input)="onInput($event)"
+      ></textarea>
+    </label>
+
+    <label class="tt-form-label">
+      <span>Аватарка</span>
+      <app-avatar-upload></app-avatar-upload>
+    </label>
+
+
+    <label class="tt-form-label">
+      <span>Навыки</span>
+      <input type="text" class="tt-form-input" placeholder="Введите данные" formControlName="stack">
+    </label>
+  </div>
+  <div class="profile-form__actions">
+    <div class="profile-form__actions--danger">
+      <button class="btn btn-transparent btn-square btn--danger" type="button">
+        <svg icon="trash" viewBox="0 0 16 16"></svg>
+      </button>
+      <button class="btn btn-transparent btn-square" type="button" (click)="authService.logout()">
+        <svg icon="exit" viewBox="0 0 16 16"></svg>
+      </button>
+    </div>
+    <div class="profile-form__actions--main">
+      <a routerLink="/profile/me" class="btn btn-transparent">Отмена</a>
+      <button class="btn" type="submit" (click)="onSave()">Сохранить</button>
+    </div>
+  </div>
+</form>

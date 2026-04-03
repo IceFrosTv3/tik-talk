@@ -1,0 +1,9 @@
+<a href="/" class="follower">
+  <img
+    class="follower__image"
+    [src]="profile.avatarUrl | imageUrl" [alt]="profile.lastName"
+    width="32" height="32"
+    loading="lazy"
+  />
+  <span class="follower__name">{{profile.firstName}} {{profile.lastName}}</span>
+</a>

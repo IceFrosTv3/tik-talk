@@ -1,0 +1,55 @@
+<div class="sidebar__content">
+  <div class="sidebar__logo">
+    <img
+      src="/assets/svg/logo-small.svg" alt="Logo"
+      width="61" height="74"
+      loading="lazy"
+    />
+  </div>
+  <nav class="sidebar__navigation">
+    <ul class="sidebar__list">
+      <li *ngFor="let menuItem of menuItems" class="sidebar__item">
+        <a
+          class="sidebar__link"
+          [routerLink]="menuItem.link"
+          routerLinkActive="active"
+        >
+          <svg [icon]="menuItem.icon" viewBox="0 0 16 16"></svg>
+          <span>{{ menuItem.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar__followers followers">
+    <span class="followers__title">Подписчики</span>
+    <ul class="followers__list">
+      @for (profile of subscribers$ | async; track profile.id) {
+        <app-followers-card [profile]="profile"></app-followers-card>
+      }
+    </ul>
+    <a routerLink="/subscribers" class="followers__description">
+      <span class="followers__description-text">Все подписчики</span>
+    </a>
+  </div>
+</div>
+<footer class="sidebar__profile-link profile">
+<!--  me(); as meProfile это алиас-->
+  @if (me(); as meProfile) {
+    <div class="profile__content">
+        <img
+          class="profile__image"
+          [src]="(meProfile.avatarUrl | imageUrl) ?? '/assets/images/profile-placeholder.svg'"
+          alt="Profile avatar"
+          width="32" height="32"
+          loading="lazy"
+        />
+      <a routerLink="/profile/me">
+        <span class="profile__title">{{meProfile.username}}</span>
+      </a>
+    </div>
+    <a routerLink="/settings" type="button" class="profile__settings">
+      <svg icon="settings"></svg>
+    </a>
+  }
+</footer>

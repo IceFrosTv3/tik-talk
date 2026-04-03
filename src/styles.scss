@@ -1,0 +1,173 @@
+@use "fonts";
+
+:root {
+  --font-family: 'JetBrains Mono', sans-serif;
+
+  --dark-color: #000000;
+  --dark-active: #161616;
+  --light-color: #ffffff;
+  --light-transparent: rgba(255, 255, 255, 0.75);
+  --primary-color: #AE7AFF;
+  --gray-color: #5F646D;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+}
+
+body {
+  background-color: var(--dark-color);
+  background-image: url("/assets/images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--light-color);
+  font-family: var(--font-family);
+  line-height: 1rem;
+}
+
+.skill-tag {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--light-color);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 2px;
+  cursor: pointer;
+
+  &-transparent {
+    background-color: transparent;
+    color: var(--light-color);
+    border: 1px solid var(--light-color);
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      border: 1px solid var(--dark-color);
+    }
+  }
+
+  &-square {
+    padding: 14px;
+    line-height: normal;
+  }
+
+  &--danger {
+    color: #E99898;
+  }
+}
+
+.h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 56px;
+}
+
+.h6 {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5rem;
+}
+
+.subtitle {
+  font-size: 14px;
+  line-height: 1.3rem;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff; // цвет текста
+  caret-color: #ffffff; // цвет курсора
+  transition: background-color 9999s ease; // задержка чтобы фон не мелькал
+}
+
+a {
+  text-decoration: none;
+  color: var(--light-color);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--primary-color);
+    background-color: var(--dark-active);
+    border-radius: 2px;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.tt-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--light-transparent);
+}
+
+.tt-form-input {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding-block: 12px;
+  background-color: transparent;
+  color: var(--light-color);
+  border: none;
+  border-bottom: 1px solid var(--light-color);
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--light-transparent);
+  }
+}
+
+.tt-text-area {
+  min-height: 46px;
+  height: 46px;
+  max-height: 84px;
+  padding-right: 5px;
+  resize: none;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--light-transparent);
+    border-radius: 10px;
+    border: 2px solid transparent; // отступ по умолчанию — ползунок выглядит тонким
+    background-clip: padding-box; // считаем границы от пэддингов, а не от бордеров.
+
+    &:hover {
+      border: 0; // убираем отступ — ползунок "расширяется"
+      background: var(--primary-color);
+    }
+  }
+}
